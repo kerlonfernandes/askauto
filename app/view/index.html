@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage do Twitter</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+
+/* Estilos para o layout do Twitter */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #030303;
+}
+
+header {
+    background-color: #1DA1F2;
+    color: #ffffff;
+    padding: 10px;
+    /* Adicione estilos para a barra de navegação do Twitter */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    background-color: #212121;
+}
+
+.sidebar-left {
+    width: 300px;
+    background-color: #282828;
+    color: #ffffff;
+    /* Estilos para a parte lateral esquerda (perfil do usuário) */
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.timeline {
+    flex: 1;
+    background-color: #212121;
+    color: #ffffff;
+    /* Estilos para a timeline (lista de tweets) */
+}
+
+.tweet {
+    padding: 10px;
+    border-bottom: 1px solid #ffffff;
+}
+
+.tweet.retweet {
+    border-left: 3px solid #1DA1F2;
+    padding-left: 20px;
+}
+
+.tweet .user-info {
+    display: flex;
+    align-items: center;
+}
+
+.tweet .user-info img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.sidebar-right {
+    width: 300px;
+    background-color: #282828;
+    color: hsl(0, 0%, 100%);
+    
+}
+
+.trending-topics,
+.who-to-follow {
+    padding: 10px;
+    border-bottom: 1px solid #ffffff;
+}
+
+.trending-topics h3,
+.who-to-follow h3 {
+    margin-bottom: 10px;
+}
+
+.trending-topics ul,
+.who-to-follow ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.trending-topics li,
+.who-to-follow li {
+    margin-bottom: 5px;
+}
+
+footer {
+    background-color: #1DA1F2;
+    color: #ffffff;
+    padding: 10px;
+    /* Estilos para o rodapé do Twitter */
+}
+
+
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <!-- Barra de navegação do Twitter (logotipo, menu, etc.) -->
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="sidebar-left">
+                <!-- Perfil do usuário (foto de perfil, nome de usuário, etc.) -->
+                <div class="profile">
+                    <img src="profile_picture.jpg" alt="Foto de perfil">
+                    <h3>@usuario</h3>
+                </div>
+            </div>
+
+            <div class="timeline">
+                <!-- Lista de postagens (tweets) -->
+                <div class="tweet">
+                    <div class="user-info">
+                        <img src="user1_profile_picture.jpg" alt="Foto de perfil do usuário 1">
+                        <h3>@usuario1</h3>
+                    </div>
+                    <p>Exemplo de postagem do usuário 1...</p>
+                </div>
+
+                <div class="tweet">
+                    <div class="user-info">
+                        <img src="user2_profile_picture.jpg" alt="Foto de perfil do usuário 2">
+                        <h3>@usuario2</h3>
+                    </div>
+                    <p>Exemplo de postagem do usuário 2...</p>
+                </div>
+
+                <!-- Exemplo de postagem retweetada -->
+                <div class="tweet retweet">
+                    <div class="user-info">
+                        <img src="user3_profile_picture.jpg" alt="Foto de perfil do usuário 3">
+                        <h3>@usuario3</h3>
+                    </div>
+                    <p>Exemplo de postagem retweetada...</p>
+                    <div class="original-tweet">
+                        <div class="user-info">
+                            <img src="user2_profile_picture.jpg" alt="Foto de perfil do usuário 2">
+                            <h3>@usuario2</h3>
+                        </div>
+                        <p>Postagem original do usuário 2...</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-right">
+                <!-- Trending topics, sugestões de quem seguir, etc. -->
+                <div class="trending-topics">
+                    <h3>Trending Topics</h3>
+                    <ul>
+                        <li>#Hashtag1</li>
+                        <li>#Hashtag2</li>
+                        <li>#Hashtag3</li>
+                        <!-- Mais hashtags... -->
+                    </ul>
+                </div>
+
+                <div class="who-to-follow">
+                    <h3>Quem Seguir</h3>
+                    <ul>
+                        <li>@usuario4</li>
+                        <li>@usuario5</li>
+                        <li>@usuario6</li>
+                        <!-- Mais sugestões de quem seguir... -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <!-- Rodapé do Twitter -->
+    </footer>
+</body>
+
+</html>
+
+
+Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi velit fugiat, culpa inventore, odio error explicabo tenetur, vero cum iure eius labore autem sit rerum amet quibusdam consequatur. Sit repudiandae quaerat sunt deleniti iste nobis, rerum eaque impedit. Doloribus ratione modi vitae fuga culpa dolore ipsa, omnis tempore delectus et eum repellat deserunt inventore provident nobis sequi! Magni fugiat quasi, fugit repudiandae voluptas, vero dignissimos nisi omnis numquam similique blanditiis iusto rem sequi architecto velit sed voluptates laboriosam! Explicabo sit labore itaque modi enim nulla, nihil quidem nostrum libero ut eum nobis quae consectetur provident error suscipit cum fugit corporis.

@@ -1,0 +1,50 @@
+/* Adicione esse código no estilo do seu arquivo HTML (por exemplo, no cabeçalho <style>) */
+
+/* Estilo para as respostas */
+.post__reply {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+  }
+  
+  .post__reply img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-right: 8px;
+  }
+  
+  .post__reply h3 {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .post__reply-body {
+    display: flex;
+    flex-direction: column; /* Altera a direção para vertical */
+  }
+  
+  .post__reply-body span {
+    font-size: 14px;
+  }
+  
+  /* Estilo para o botão "Mostrar Respostas" */
+  .post__show-hide-button {
+    background-color: transparent;
+    border: none;
+    color: #1da1f2; /* Cor do Twitter */
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    text-decoration: underline;
+    padding: 0;
+  }
+  
+  /* Estilo para ocultar o botão de mostrar respostas quando não há respostas */
+  .post__footer {
+    display: flex;
+    flex-direction: column; /* Altera a direção para vertical */
+    align-items: flex-start; /* Alinha o conteúdo à esquerda */
+  }
+  
