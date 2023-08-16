@@ -60,3 +60,4 @@ $pdo = new PDO("mysql:dbname=$database;host=$host;charset=utf8", "$user", "$pass
 
 
 
+$BASE_URL = "http://" . $_SERVER['SERVER_NAME'] . dirname($_SERVER['REQUEST_URI'] . "?") . "/";

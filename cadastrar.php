@@ -66,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                     <input class="hov" type="submit" value="entrar">
 
                 </form>
-                <p>já tem conta? <a href="login.php">Login</a></p>
+                <p>já tem conta? <a href="index.php">Login</a></p>
             </div>
         </div>
 

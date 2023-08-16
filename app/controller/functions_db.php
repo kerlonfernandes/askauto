@@ -99,7 +99,7 @@ function postagemEnviar($conn ,$id_usuario, $postagem,){
 }
 
 function exibePostagens($conn){
-    $query = "SELECT p.postagem, u.id, u.nome_usuario, p.hora FROM postagens as p JOIN usuarios as u ON p.id_usuario = u.id ORDER BY p.id DESC " 
+    $query = "SELECT p.postagem, p.id AS postagem_id, u.id AS user_id , u.nome_usuario, u.id ,p.hora, p.data_postagem FROM postagens as p JOIN usuarios as u ON p.id_usuario = u.id ORDER BY p.id DESC;" 
     ;
     $result = $conn->query($query);
 
@@ -118,5 +118,96 @@ function exibePostagens($conn){
 
     return $postagens;
 }
+function exibeRespostas($conn){
+    $query = "SELECT p.id AS id_postagem, p.id_usuario AS id_usuario_postagem, p.postagem, p.hora AS hora_postagem, p.data_postagem, r.id AS id_resposta, r.id_usuario AS id_usuario_resposta, r.resposta, r.data_resposta FROM postagens p LEFT JOIN respostas r ON p.id = r.id_postagem ORDER BY p.id, r.data_resposta;" 
+    ;
+    $result = $conn->query($query);
 
+    if ($result === false) {
+        // Ocorreu um erro na consulta SQL
+        return "Erro na consulta SQL: " . $conn->error;
+    }
+
+    $respostas = array(); // Inicializa um array para armazenar os resultados
+
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $respostas[] = $row; // Adiciona cada linha como um elemento do array
+        }
+    }
+
+    return $respostas;
+}
+
+
+function perfis($conn, $id){
+    $stmt = $conn->prepare("SELECT * FROM usuarios WHERE id = ?");
+    $stmt->bind_param('s', $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    $data = $result->fetch_row();
+    
+    return $data;
+
+
+}
+
+function exibePostagem($conn, $id_post){
+
+    $query = "SELECT p.postagem, p.id AS postagem_id, u.id AS user_id, u.nome_usuario, u.id, p.hora, p.data_postagem FROM postagens AS p JOIN usuarios AS u ON p.id_usuario = u.id WHERE p.id = ? ORDER BY p.id DESC;
+    ;
+    "; 
+    
+    $stmt = $conn->prepare($query);
+    
+    $stmt->bind_param("i", $id_post); // Use $id_post em vez de $id
+    $stmt->execute();
+    
+    $result = $stmt->get_result();
+    
+    if ($result === false) {
+        // Ocorreu um erro na execução da declaração
+        echo "Erro na execução da declaração: " . $stmt->error;
+    } else {
+        $postagens = array(); // Inicializa um array para armazenar os resultados
+    
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $postagens[] = $row; // Adiciona cada linha como um elemento do array
+            }
+            
+            return $postagens;
+            
+        } else {
+           return;
+        }
+    }
+    
+
+
+}
+function embedYouTubeVideo($input) {
+    $videoId = getYoutubeVideoId($input);
+
+    if ($videoId) {
+        $embedCode = '
+        <hr>
+        <iframe width="545" height="315" src="https://www.youtube.com/embed/' . $videoId . '" frameborder="0" allowfullscreen></iframe>';
+        return $embedCode;
+    } else {
+        return;
+    }
+}
+
+function getYoutubeVideoId($url) {
+    $pattern = '/(?:https?:\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=|embed\/|v\/)?([a-zA-Z0-9_\-]{11})/';
+    preg_match($pattern, $url, $matches);
+
+    if (isset($matches[1])) {
+        return $matches[1];
+    } else {
+        return false;
+    }
+}
 

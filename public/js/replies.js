@@ -13,13 +13,20 @@
       // Alterne a exibição das respostas com base no estado atual
       if (repliesHidden) {
         postReplies.style.display = 'block';
-        button.textContent = 'Esconder Respostas';
+        button.textContent = 'Indo para as respostas!';
       } else {
         postReplies.style.display = 'none';
-        button.textContent = 'Mostrar Respostas';
+        button.textContent = 'Indo para as respostas!';
       }
     });
   });
 
+
+
+  document.querySelector('.tweetBox__tweetButton').addEventListener('mouseover', () => {
+
+    console.log('rewste')
+
+  })
 
   
