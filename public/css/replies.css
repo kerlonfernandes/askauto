@@ -53,3 +53,54 @@
     color:#212529;
 
   }
+
+  .username-post {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .username-post::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: black;
+    transition: width 0.3s ease-in-out; /* A transição controla o surgimento da linha */
+  }
+  
+  .username-post:hover::before {
+    width: 100%; /* Quando o mouse passa sobre o elemento, a linha aparece gradualmente */
+  } 
+
+  .custom-card {
+    width: 80%; /* Defina a largura desejada em porcentagem ou em pixels */
+    margin: 0 auto; /* Centralize o card horizontalmente na página */
+}
+
+.username-post {
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+  position: relative;
+  overflow: hidden;
+}
+
+.username-post::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: black;
+  transition: width 0.3s ease-in-out; /* A transição controla o surgimento da linha */
+}
+
+.username-post:hover::before {
+  width: 100%; /* Quando o mouse passa sobre o elemento, a linha aparece gradualmente */
+}

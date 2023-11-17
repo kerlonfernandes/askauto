@@ -7,6 +7,7 @@
   }
   
   body {
+   
     --twitter-color: #3E065F;
     --twitter-background: #e6ecf0;
   }
@@ -78,13 +79,12 @@
   
   /* feed */
   .feed {
-    flex: 0.5;
+    flex: 0.9; /* You can adjust this value to allocate more width to the feed */
     border-right: 1px solid var(--twitter-background);
     min-width: fit-content;
     overflow-y: scroll;
     max-height: calc(100vh - 70px); /* Definindo a altura máxima para evitar esticamento */
   }
-  
   .feed__header {
     position: sticky;
     top: 0;
@@ -269,4 +269,79 @@
 
   color: red;
 
+}
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Add any additional styling you need for the spinner container */
+}
+
+#loader {
+  text-align: center; /* Alinhar horizontalmente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto; /* Alinhar horizontalmente */
+  display: block;
+}
+
+#pesquisar-postagem {
+
+  border: none;
+
+
+}
+
+.username-post {
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+  position: relative;
+  overflow: hidden;
+}
+
+.username-post::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: black;
+  transition: width 0.3s ease-in-out; /* A transição controla o surgimento da linha */
+}
+
+.username-post:hover::before {
+  width: 100%; /* Quando o mouse passa sobre o elemento, a linha aparece gradualmente */
+}
+
+.respostas-icon::before {
+  content: "Respostas Da Postagem";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) scaleY(0);
+  transform-origin: top center;
+  width: 100%;
+  height: 2px;
+  background-color: #3E065F;
+  transition: transform 0.3s ease;
+}
+
+.respostas-icon::before svg {
+  display: block; /* Certifique-se de que o SVG seja exibido como bloco */
+  width: 16px; /* Ajuste o tamanho do SVG conforme necessário */
+  height: 16px;
+  fill: currentColor; /* Use a cor atual do texto para preencher o SVG */
+}
+
+.respostas-icon:hover::before {
+  transform: translateX(-50%) scaleY(1);
+}
+
+.custom-card {
+  width: 80%; /* Defina a largura desejada em porcentagem ou em pixels */
+  margin: 0 auto; /* Centralize o card horizontalmente na página */
 }

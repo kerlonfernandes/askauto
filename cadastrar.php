@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $stmt = $conn->prepare("INSERT INTO usuarios (nome_usuario, email, senha, key_user, chave_recuperacao, hora, data_acesso) VALUES (?, ?, ?, ?, ?, ?, ?)");
 
     if (!$stmt) {
-        echo "Erro na preparação da consulta: " ;
+        echo "Erro na preparação da consulta: ";
         return;
     }
 

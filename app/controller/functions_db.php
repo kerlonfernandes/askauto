@@ -1,7 +1,8 @@
 <?php
+use Midspace\Database;
 
 require_once 'config.php';
-
+require_once("Database.php");
 
 function cadastrar($conn, $email, $password, $user_name, $key_user, $chave_recuperacao) {
     if (empty($user_name) || empty($email) || empty($password) || empty($key_user) || empty($chave_recuperacao)){
@@ -211,3 +212,25 @@ function getYoutubeVideoId($url) {
     }
 }
 
+function respostas($id_postagem) {
+    $query = new Database(MYSQL_CONFIG);
+
+    return $query->execute_query(
+        "SELECT respostas.*, usuarios.nome_usuario
+        FROM respostas
+        JOIN usuarios ON usuarios.id = respostas.id_usuario
+        WHERE respostas.id_postagem = :id_postagem
+        ORDER BY respostas.id DESC;",
+        ["id_postagem" => $id_postagem]
+    );
+}
+
+function responder($id, $id_usuario, $resposta){
+    global $horaAtual;
+    global $dataAtual;
+
+    $query = new Database(MYSQL_CONFIG);
+    $query->execute_non_query("INSERT INTO respostas (resposta, id_usuario, id_postagem, hora_resposta, data_resposta) VALUES (:resposta, :id_usuario, :id_postagem, :hora_resposta , :data_resposta)", ['resposta' => $resposta, "id_usuario" => $id_usuario, "id_postagem" => $id, "hora_resposta" =>  $GLOBALS['currentTime'], "data_resposta" => $GLOBALS['currentDate']]);
+    
+
+}
